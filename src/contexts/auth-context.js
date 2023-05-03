@@ -152,7 +152,7 @@ export const AuthProvider = (props) => {
   };
 
   const signUp = async (email, name, password) => {
-    throw new Error('Sign up is not implemented');
+    throw new Error('Not implemented');
   };
 
   const signOut = () => {
