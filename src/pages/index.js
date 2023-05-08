@@ -1,11 +1,6 @@
 import Head from "next/head";
 import { Box, Card, Container, Unstable_Grid2 as Grid, Typography } from "@mui/material";
 import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
-import { OverviewBudget } from "src/sections/overview/overview-budget";
-import { OverviewSales } from "src/sections/overview/overview-sales";
-import { OverviewTasksProgress } from "src/sections/overview/overview-tasks-progress";
-import { OverviewTotalCustomers } from "src/sections/overview/overview-total-customers";
-import { OverviewTotalProfit } from "src/sections/overview/overview-total-profit";
 
 const now = new Date();
 
@@ -23,23 +18,7 @@ const Page = () => (
     >
       <Container maxWidth="xl">
         <Grid container spacing={3}>
-          <Grid xs={12} sm={6} lg={3}>
-            <OverviewBudget difference={12} positive sx={{ height: "100%" }} value="$24k" />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3}>
-            <OverviewTotalCustomers
-              difference={16}
-              positive={false}
-              sx={{ height: "100%" }}
-              value="1.6k"
-            />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3}>
-            <OverviewTasksProgress sx={{ height: "100%" }} value={75.5} />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3}>
-            <OverviewTotalProfit sx={{ height: "100%" }} value="$15k" />
-          </Grid>
+          
           <Grid xs={12} lg={8}>
             <Typography>
               <p>About Us</p>
@@ -73,15 +52,16 @@ const Page = () => (
             </Typography>
           </Grid>
 
-          <Grid xs={12} md={6} lg={4}>
+          
+          <Grid xs={12} md={12} lg={8}>
             <Card>
-              <Typography>
+            <Typography>
                 <p>Social Media</p>
                 
               </Typography>
             </Card>
+          
           </Grid>
-          <Grid xs={12} md={12} lg={8}></Grid>
         </Grid>
       </Container>
     </Box>

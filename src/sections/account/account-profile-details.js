@@ -11,33 +11,33 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 
-const states = [
+const region = [
   {
-    value: 'alabama',
-    label: 'Alabama'
+    value: 'Dar es Salaam',
+    label: 'Dar es Salaam'
   },
   {
-    value: 'new-york',
-    label: 'New York'
+    value: 'Morogoro',
+    label: 'Morogoro'
   },
   {
-    value: 'san-francisco',
-    label: 'San Francisco'
+    value: 'Arusha',
+    label: 'Arusha'
   },
   {
-    value: 'los-angeles',
-    label: 'Los Angeles'
+    value: 'Dodoma',
+    label: 'Dodoma'
   }
 ];
 
 export const AccountProfileDetails = () => {
   const [values, setValues] = useState({
-    firstName: 'Anika',
-    lastName: 'Visser',
-    email: 'demo@devias.io',
-    phone: '',
-    state: 'los-angeles',
-    country: 'USA'
+    firstName: 'Johnson',
+    lastName: 'Fredrick',
+    email: 'demoaccount@google.com',
+    phone: '+2557588888',
+    region: 'Dar es Salaam',
+    country: 'Tanzania'
   });
 
   const handleChange = useCallback(
@@ -59,7 +59,7 @@ export const AccountProfileDetails = () => {
 
   return (
     <form
-      autoComplete="off"
+      autoComplete="on"
       noValidate
       onSubmit={handleSubmit}
     >
@@ -123,7 +123,7 @@ export const AccountProfileDetails = () => {
                   label="Phone Number"
                   name="phone"
                   onChange={handleChange}
-                  type="number"
+                  // type="number"
                   value={values.phone}
                 />
               </Grid>
@@ -154,7 +154,7 @@ export const AccountProfileDetails = () => {
                   SelectProps={{ native: true }}
                   value={values.state}
                 >
-                  {states.map((option) => (
+                  {region.map((option) => (
                     <option
                       key={option.value}
                       value={option.value}

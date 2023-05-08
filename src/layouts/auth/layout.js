@@ -10,7 +10,6 @@ const DynamicImage = dynamic(() => import("next/image"), { ssr: false });
 
 export const Layout = (props) => {
   const { children } = props;
-  const isSmallScreen = typeof window !== "undefined" && window.innerWidth < 960;
 
   return (
     <Box

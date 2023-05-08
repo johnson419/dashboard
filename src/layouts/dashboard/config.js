@@ -5,11 +5,7 @@ export const items = [
     title: 'Home',
     path: '/',
   },
-  {
-    title: 'Customers',
-    path: '/customers',
-    
-  },
+  
   {
     title: 'Companies',
     path: '/companies',
@@ -20,11 +16,7 @@ export const items = [
     path: '/account',
     
   },
-  {
-    title: 'Settings',
-    path: '/settings',
-    
-  },
+  
   {
     title: 'Login',
     path: '/auth/login',
@@ -35,9 +27,5 @@ export const items = [
     path: '/auth/register',
    
   },
-  {
-    title: 'Error',
-    path: '/404',
-   
-  }
+  
 ];

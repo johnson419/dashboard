@@ -10,12 +10,12 @@ import {
 } from '@mui/material';
 
 const user = {
-  avatar: '/assets/avatars/avatar-anika-visser.png',
-  city: 'Los Angeles',
-  country: 'USA',
+  avatar: '/assets/avatars/avatar-miron-vitold.png',
+  city: 'Dar es Salaam',
+  country: 'Tanzania',
   jobTitle: 'Senior Developer',
-  name: 'Anika Visser',
-  timezone: 'GTM-7'
+  name: 'Johnson Fredrick',
+  
 };
 
 export const AccountProfile = () => (
