@@ -1,10 +1,10 @@
 {
-  "short_name": "Devias Kit",
-  "name": "Devias Kit",
+  "short_name": "UDSM Dashboard",
+  "name": "UDSM Dashboard",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "UDSM.ico",
+      "sizes": "64x64",
       "type": "image/x-icon"
     }
   ],

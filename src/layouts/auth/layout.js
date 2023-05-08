@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import NextLink from "next/link";
 import dynamic from "next/dynamic";
 import { Box, Typography, Unstable_Grid2 as Grid } from "@mui/material";
-import { Logo } from "src/components/logo";
-import { display } from "@mui/system";
 
 // TODO: Change subtitle text
 const DynamicImage = dynamic(() => import("next/image"), { ssr: false });
