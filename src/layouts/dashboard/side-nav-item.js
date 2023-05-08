@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, ButtonBase } from '@mui/material';
 
 export const SideNavItem = (props) => {
-  const { active = false, disabled, external, icon, path, title } = props;
+  const { active = false, disabled, external, path, title } = props;
 
   const linkProps = path
     ? external
@@ -40,23 +40,7 @@ export const SideNavItem = (props) => {
         }}
         {...linkProps}
       >
-        {icon && (
-          <Box
-            component="span"
-            sx={{
-              alignItems: 'center',
-              color: 'neutral.400',
-              display: 'inline-flex',
-              justifyContent: 'center',
-              mr: 2,
-              ...(active && {
-                color: 'primary.main'
-              })
-            }}
-          >
-            {icon}
-          </Box>
-        )}
+        
         <Box
           component="span"
           sx={{
