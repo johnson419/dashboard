@@ -3,7 +3,7 @@
   "name": "UDSM Dashboard",
   "icons": [
     {
-      "src": "UDSM.ico",
+      "src": "UDSMicon.svg",
       "sizes": "64x64",
       "type": "image/x-icon"
     }
