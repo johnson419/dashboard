@@ -152,11 +152,6 @@ const Page = ({history}) => {
                 <Button fullWidth size="large" sx={{ mt: 3 }} onClick={handleSkip}>
                   Skip authentication
                 </Button>
-                <Alert color="primary" severity="info" sx={{ mt: 3 }}>
-                  <div>
-                    You can use <b>admin@udsm.act.tz</b> and password <b>Password123!</b>
-                  </div>
-                </Alert>
               </form>
             )}
           </div>
