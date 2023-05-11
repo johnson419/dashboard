@@ -16,6 +16,10 @@ export const items = [
     path: '/account',
     
   },
+  {
+    title: 'Apply for PT students',
+    path:'/request',
+  },
   
   {
     title: 'Login',
@@ -29,3 +33,5 @@ export const items = [
   },
   
 ];
+
+

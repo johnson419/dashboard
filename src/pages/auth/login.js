@@ -20,28 +20,28 @@ import { Layout as AuthLayout } from "src/layouts/auth/layout";
 const Page = ({history}) => {
   const router = useRouter();
   const auth = useAuth();
-  // const [method, setMethod] = useState("email");
-  // const formik = useFormik({
-  //   initialValues: {
-  //     email: "admin@udsm.ac.tz",
-  //     password: "Password123!",
-  //     submit: null,
-  //   },
-  //   validationSchema: Yup.object({
-  //     email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
-  //     password: Yup.string().max(255).required("Password is required"),
-  //   }),
-  //   onSubmit: async (values, helpers) => {
-  //     try {
-  //       await auth.signIn(values.email, values.password);
-  //       router.push("/");
-  //     } catch (err) {
-  //       helpers.setStatus({ success: false });
-  //       helpers.setErrors({ submit: err.message });
-  //       helpers.setSubmitting(false);
-  //     }
-  //   },
-  // });
+  const [method, setMethod] = useState("email");
+  const formik = useFormik({
+    initialValues: {
+      email: "admin@udsm.ac.tz",
+      password: "Password123!",
+      submit: null,
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
+      password: Yup.string().max(255).required("Password is required"),
+    }),
+    onSubmit: async (values, helpers) => {
+      try {
+        await auth.signIn(values.email, values.password);
+        router.push("/");
+      } catch (err) {
+        helpers.setStatus({ success: false });
+        helpers.setErrors({ submit: err.message });
+        helpers.setSubmitting(false);
+      }
+    },
+  });
 
   const handleSkip = useCallback(() => {
     auth.skip();
