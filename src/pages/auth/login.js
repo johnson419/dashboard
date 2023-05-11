@@ -17,36 +17,70 @@ import {
 import { useAuth } from "src/hooks/use-auth";
 import { Layout as AuthLayout } from "src/layouts/auth/layout";
 
-const Page = () => {
+const Page = ({hist-Zory}) => {
   const router = useRouter();
   const auth = useAuth();
-  const [method, setMethod] = useState("email");
-  const formik = useFormik({
-    initialValues: {
-      email: "admin@udsm.ac.tz",
-      password: "Password123!",
-      submit: null,
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
-      password: Yup.string().max(255).required("Password is required"),
-    }),
-    onSubmit: async (values, helpers) => {
-      try {
-        await auth.signIn(values.email, values.password);
-        router.push("/");
-      } catch (err) {
-        helpers.setStatus({ success: false });
-        helpers.setErrors({ submit: err.message });
-        helpers.setSubmitting(false);
-      }
-    },
-  });
+  // const [method, setMethod] = useState("email");
+  // const formik = useFormik({
+  //   initialValues: {
+  //     email: "admin@udsm.ac.tz",
+  //     password: "Password123!",
+  //     submit: null,
+  //   },
+  //   validationSchema: Yup.object({
+  //     email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
+  //     password: Yup.string().max(255).required("Password is required"),
+  //   }),
+  //   onSubmit: async (values, helpers) => {
+  //     try {
+  //       await auth.signIn(values.email, values.password);
+  //       router.push("/");
+  //     } catch (err) {
+  //       helpers.setStatus({ success: false });
+  //       helpers.setErrors({ submit: err.message });
+  //       helpers.setSubmitting(false);
+  //     }
+  //   },
+  // });
 
   const handleSkip = useCallback(() => {
     auth.skip();
     router.push("/");
   }, [auth, router]);
+
+  const [email, setEmail] = useState('');
+  const [password, setPass] = useState('');
+ 
+  const authenticate = async (event) => {
+    event.preventDefault();
+    console.log('Authenticating user...');
+ 
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+ 
+      const data = await response.json();
+ 
+      if (response.ok) {
+        // user is authenticated, redirect to dashboard or home page
+        console.log('User authenticated:', data);
+        history.push('/');
+      } else {
+        // authentication failed, display error message
+        console.error('Authentication failed:', data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -86,29 +120,24 @@ const Page = () => {
               </Typography>
             </Stack>
             {method === "email" && (
-              <form noValidate onSubmit={formik.handleSubmit}>
+              <form 
+              onSubmit={(event) => authenticate(event, history)}>
                 <Stack spacing={3}>
                   <TextField
-                    error={!!(formik.touched.email && formik.errors.email)}
                     fullWidth
-                    helperText={formik.touched.email && formik.errors.email}
                     label="Email Address"
                     name="email"
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
-                    value={formik.values.email}
+                    value={email}
                   />
                   <TextField
-                    error={!!(formik.touched.password && formik.errors.password)}
                     fullWidth
-                    helperText={formik.touched.password && formik.errors.password}
                     label="Password"
                     name="password"
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
+                    onChange={(e) => setPass(e.target.value)}
                     type="password"
-                    value={formik.values.password}
+                    value={password}
                   />
                 </Stack>
                 <FormHelperText sx={{ mt: 1 }}>Optionally you can skip.</FormHelperText>
