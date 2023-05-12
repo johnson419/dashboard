@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-max-props-per-line */
 import Head from "next/head";
-import { Box, Card, Container, Unstable_Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Card, Container, Unstable_Grid2 as Grid, Link, Typography } from "@mui/material";
 import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
+import { Stack } from "@mui/system";
 
 const now = new Date();
 
@@ -17,10 +18,10 @@ const Page = () => (
         py: 8,
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="none">
         <Grid container spacing={3}>
           
-          <Grid xs={12} lg={8}>
+          <Grid xs={12} lg={12}>
             <Typography>
               <p>About Us</p>
               <p>
@@ -54,12 +55,58 @@ const Page = () => (
           </Grid>
 
           
-          <Grid xs={12} md={12} lg={8}>
+          <Grid xs={12} md={12} lg={12}>
             <Card>
-            <Typography>
-                <p>Social Media</p>
-                
-              </Typography>
+            <Box
+            component="main"
+            sx={{
+              flexGrow: 1,
+              py: 8,
+            }}
+            >
+              <Container maxWidth="none">
+                <Grid container spacing={3} alignItems={"stretch"}>
+                  <Grid item xs={12} sm={4} md={4} lg={4}>
+                    <Typography>
+                      <p>University</p>
+                    </Typography>
+                    <Stack>
+                    <Link href="#">Admission</Link>
+                    <Link href="#">Webmail</Link>
+                    <Link href="#">ARIS</Link>
+                    <Link href="#">Prospectus 2022/2023</Link>
+                    <Link href="#">Almanac 2022/2023</Link>
+                    <Link href="#">Hotuba ya Bajeti ya Wizara ya Elimu Sayansi na Teknolojia Mwaka 2022-23</Link>
+                    <Link href="#">Learning Management System</Link>
+                    </Stack>
+                    
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4}>
+                    <Typography>Social Media</Typography>
+                    <Stack>
+                    <Link href="#">Facebook</Link>
+                    <Link href="#">Twitter</Link>
+                    <Link href="#">Instagram</Link>
+                    <Link href="#">Youtube</Link>
+                    </Stack>
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4}>
+                    <Typography>CONTACTS</Typography>
+                    <Stack>
+                      <p>University of Dar es Salaam</p>
+                      <p>Mwalimu Julius Nyerere Mlimani Campus</p>
+                      <p>P.O. BOX 35091</p>
+                      <p>Dar es Salaam</p>
+                      <p>Tanzania</p>
+                      
+                      <p>Email: vc@udsm.ac.tz</p>
+                      <p>Website: www.udsm.ac.tz</p>
+                    </Stack>
+                  </Grid>
+                  {/* <Grid xs={12} lg={8}></Grid> */}
+                </Grid>
+              </Container>
+            </Box>
             </Card>
           
           </Grid>
