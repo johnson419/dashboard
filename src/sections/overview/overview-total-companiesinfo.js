@@ -72,18 +72,15 @@ const useChartOptions = () => {
         show: true
       },
       categories: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
+        'TTCL Dar',
+        'FINHUB',
+        'Y4C',
+        'Tanesco Dar',
+        'VETA morogoro',
+        'VETA Mbeya',
+        'TBC',
+        'BAKITA',
+        'Mwanza city Council',
       ],
       labels: {
         offsetY: 5,
@@ -124,7 +121,7 @@ export const OverviewSales = (props) => {
             Sync
           </Button>
         )}
-        title="Sales"
+        title="Company with the largest number of students"
       />
       <CardContent>
         <Chart

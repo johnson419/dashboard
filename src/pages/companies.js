@@ -1,9 +1,9 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import ArrowUpOnSquareIcon from "@heroicons/react/24/solid/ArrowUpOnSquareIcon";
-import ArrowDownOnSquareIcon from "@heroicons/react/24/solid/ArrowDownOnSquareIcon";
 import PlusIcon from "@heroicons/react/24/solid/PlusIcon";
 import { OverviewBudget } from "src/sections/overview/overview-budget";
-import { OverviewSales } from "src/sections/overview/overview-sales";
+import { OverviewSales } from "src/sections/overview/overview-total-companiesinfo";
 import { OverviewTasksProgress } from "src/sections/overview/overview-tasks-progress";
 import { OverviewTotalCustomers } from "src/sections/overview/overview-total-customers";
 import { OverviewTotalProfit } from "src/sections/overview/overview-total-profit";
@@ -21,6 +21,9 @@ import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
 import { CompaniesSearch } from "src/sections/companies/companies-search";
 import LockClosedIcon from "@heroicons/react/24/solid/LockClosedIcon";
 
+
+
+
 const Page = () => (
   <>
     <Head>
@@ -35,10 +38,14 @@ const Page = () => (
     >
       <Container maxWidth="xl">
         <Stack spacing={3}>
-          <Stack direction="row" justifyContent="space-between" spacing={4}>
+          <Stack direction="row"
+justifyContent="space-between"
+spacing={4}>
             <Stack spacing={1}>
               <Typography variant="h4">Companies</Typography>
-              <Stack alignItems="center" direction="row" spacing={1}>
+              <Stack alignItems="center"
+direction="row"
+spacing={1}>
                 <Button
                   color="inherit"
                   startIcon={
@@ -62,7 +69,7 @@ const Page = () => (
               </Stack>
             </Stack>
             <div>
-              <Button
+              {/* <Button
                 startIcon={
                   <SvgIcon fontSize="small">
                     <PlusIcon />
@@ -71,7 +78,7 @@ const Page = () => (
                 variant="contained"
               >
                 Add
-              </Button>
+              </Button> */}
             </div>
           </Stack>
           <CompaniesSearch />
@@ -83,42 +90,53 @@ const Page = () => (
             }}
           >
             <Container maxWidth="xl">
-              <Grid container spacing={3}>
-                <Grid xs={12} sm={6} lg={3}>
+              <Grid container 
+              spacing={3}>
+                {/* <Grid xs={12} sm={6} lg={3}>
                   <OverviewBudget difference={12} positive sx={{ height: "100%" }} value="$24k" />
-                </Grid>
-                <Grid xs={12} sm={6} lg={3}>
+                </Grid> */}
+                <Grid xs={12} 
+                sm={6} 
+                lg={3}>
                   <OverviewTotalCustomers
                     difference={16}
-                    positive={false}
+                    positive={true}
                     sx={{ height: "100%" }}
                     value="1.6k"
                   />
                 </Grid>
-                <Grid xs={12} sm={6} lg={3}>
+                {/* <Grid xs={12} sm={6} lg={3}>
                   <OverviewTasksProgress sx={{ height: "100%" }} value={75.5} />
+                </Grid> */}
+                <Grid xs={12}
+sm={6}
+lg={3}>
+                  <OverviewTotalProfit 
+                   difference={20}
+                   positive={true} 
+                  sx={{ height: "100%" }} 
+                  value="200"
+                 />
                 </Grid>
-                <Grid xs={12} sm={6} lg={3}>
-                  <OverviewTotalProfit sx={{ height: "100%" }} value="$15k" />
-                </Grid>
-                <Grid xs={12} lg={8}>
+                <Grid xs={12}
+lg={8}>
                   <OverviewSales
                     chartSeries={[
                       {
                         name: "This year",
-                        data: [18, 16, 5, 8, 3, 14, 14, 16, 17, 19, 18, 20],
+                        data: [18, 16, 5, 8, 3, 14, 14, 16, 17,],
                       },
                       {
                         name: "Last year",
-                        data: [12, 11, 4, 6, 2, 9, 9, 10, 11, 12, 13, 13],
+                        data: [12, 11, 4, 6, 2, 9, 9, 10, 11,],
                       },
                     ]}
                     sx={{ height: "100%" }}
                   />
                 </Grid>
 
-                <Grid xs={12} md={6} lg={4}></Grid>
-                <Grid xs={12} md={12} lg={8}></Grid>
+                {/* <Grid xs={12} md={6} lg={4}></Grid>
+                <Grid xs={12} md={12} lg={8}></Grid> */}
               </Grid>
             </Container>
           </Box>

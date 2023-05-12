@@ -21,13 +21,13 @@ export const OverviewTotalCustomers = (props) => {
               color="text.secondary"
               variant="overline"
             >
-              Total Customers
+              Total Students available for Practical Training
             </Typography>
             <Typography variant="h4">
               {value}
             </Typography>
           </Stack>
-          <Avatar
+          {/* <Avatar
             sx={{
               backgroundColor: 'success.main',
               height: 56,
@@ -37,7 +37,7 @@ export const OverviewTotalCustomers = (props) => {
             <SvgIcon>
               <UsersIcon />
             </SvgIcon>
-          </Avatar>
+          </Avatar> */}
         </Stack>
         {difference && (
           <Stack

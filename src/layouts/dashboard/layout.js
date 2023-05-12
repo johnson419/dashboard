@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { withAuthGuard } from 'src/hocs/with-auth-guard';
 import { SideNav } from './side-nav';
 import { TopNav } from './top-nav';
+import { useRouter } from 'next/router';
 
 const SIDE_NAV_WIDTH = 280;
 
